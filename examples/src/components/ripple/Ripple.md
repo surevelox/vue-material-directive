@@ -40,25 +40,31 @@ export default {
 
 ```vue
 <template>
-  <div>
-      <div>
-          <div  class="mdc-ripple-surface" v-ripple>
-            Primary
-          </div>
-          
-      </div>      
-  </div>
+<div>
+    <div  class="mdc-ripple-surface mdc-typography mdc-typography--caption" v-ripple>
+        Click Here!
+    </div>
+    <div  class="mdc-ripple-surface material-icons" style="border-radius:50%" v-ripple.unbounded>
+        favorite
+    </div>
+    <div  class="mdc-ripple-surface mdc-ripple-surface--primary mdc-theme--primary mdc-typography mdc-typography--body1"  v-ripple>
+        Primary
+    </div>
+    <div  class="mdc-ripple-surface mdc-ripple-surface--accent mdc-theme--secondary mdc-typography mdc-typography--body2" v-ripple>
+        Secondary
+    </div>
+</div>
 </template>
 <style>
 .mdc-ripple-surface{
-padding:20px;
+padding:8px;
 }
 </style>
 ```
 
 
 
-### v-tab-bar
+### v-ripple
 Directive for Ripple
 
 ```html static

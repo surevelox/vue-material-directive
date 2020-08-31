@@ -7,13 +7,13 @@ import { applyPassive } from '@material/dom/events';
 import { matches } from '@material/dom/ponyfill';
 
 
-type RippleParentElement = {
-    readonly parent: HTMLElement
-};
+// type RippleParentElement = {
+//     readonly element: HTMLElement
+// };
 
 interface MDCRippleElement extends HTMLElement {
     mdcComponent: MDCRippleFoundation | null;
-    surface : RippleParentElement;
+    //surface : RippleParentElement;
     
 
 }
@@ -21,11 +21,13 @@ interface MDCRippleElement extends HTMLElement {
 
 const Ripple: DirectiveOptions = {
     inserted(el: Element | null, binding: VNodeDirective, vnode: VNode) {
-        
+        //
     },
     bind(el: Element | null, binding: VNodeDirective, vnode: VNode) {
 
         const boundElement = el as MDCRippleElement;
+        const modifiers = binding.modifiers;
+        const arg = binding.arg;
 
         const _adapter : MDCRippleAdapter = {
             browserSupportsCssVars(): boolean {
@@ -35,7 +37,7 @@ const Ripple: DirectiveOptions = {
                 return false;
             },
             isSurfaceActive(): boolean {
-                return matches(boundElement.surface.parent, ':active')
+                return matches(boundElement, ':active')
             },
             isSurfaceDisabled(): boolean {
                 return false;
@@ -47,12 +49,12 @@ const Ripple: DirectiveOptions = {
                 boundElement.classList.remove(className);
             },
             containsEventTarget(target: EventTarget | null): boolean {
-                return boundElement.surface.parent.contains(target as Node);
+                return boundElement.contains(target as Node);
             },
-            registerInteractionHandler : (evtType, handler) => boundElement.surface.parent.addEventListener(evtType, handler, applyPassive())
+            registerInteractionHandler : (evtType, handler) => boundElement.addEventListener(evtType, handler, applyPassive())
             ,
             deregisterInteractionHandler<K extends "abort" | "animationcancel" | "animationend" | "animationiteration" | "animationstart" | "auxclick" | "blur" | "cancel" | "canplay" | "canplaythrough" | "change" | "click" | "close" | "contextmenu" | "cuechange" | "dblclick" | "drag" | "dragend" | "dragenter" | "dragexit" | "dragleave" | "dragover" | "dragstart" | "drop" | "durationchange" | "emptied" | "ended" | "error" | "focus" | "focusin" | "focusout" | "gotpointercapture" | "input" | "invalid" | "keydown" | "keypress" | "keyup" | "load" | "loadeddata" | "loadedmetadata" | "loadstart" | "lostpointercapture" | "mousedown" | "mouseenter" | "mouseleave" | "mousemove" | "mouseout" | "mouseover" | "mouseup" | "pause" | "play" | "playing" | "pointercancel" | "pointerdown" | "pointerenter" | "pointerleave" | "pointermove" | "pointerout" | "pointerover" | "pointerup" | "progress" | "ratechange" | "reset" | "resize" | "scroll" | "securitypolicyviolation" | "seeked" | "seeking" | "select" | "selectionchange" | "selectstart" | "stalled" | "submit" | "suspend" | "timeupdate" | "toggle" | "touchcancel" | "touchend" | "touchmove" | "touchstart" | "transitioncancel" | "transitionend" | "transitionrun" | "transitionstart" | "volumechange" | "waiting" | "wheel">(evtType: K, handler: SpecificEventListener<K>): void {
-                boundElement.surface.parent.removeEventListener(evtType, handler, applyPassive());
+                boundElement.removeEventListener(evtType, handler, applyPassive());
             },
             registerDocumentInteractionHandler:(evtType, handler) => document.documentElement.addEventListener(evtType, handler, applyPassive()),
             deregisterDocumentInteractionHandler<K extends "abort" | "animationcancel" | "animationend" | "animationiteration" | "animationstart" | "auxclick" | "blur" | "cancel" | "canplay" | "canplaythrough" | "change" | "click" | "close" | "contextmenu" | "cuechange" | "dblclick" | "drag" | "dragend" | "dragenter" | "dragexit" | "dragleave" | "dragover" | "dragstart" | "drop" | "durationchange" | "emptied" | "ended" | "error" | "focus" | "focusin" | "focusout" | "gotpointercapture" | "input" | "invalid" | "keydown" | "keypress" | "keyup" | "load" | "loadeddata" | "loadedmetadata" | "loadstart" | "lostpointercapture" | "mousedown" | "mouseenter" | "mouseleave" | "mousemove" | "mouseout" | "mouseover" | "mouseup" | "pause" | "play" | "playing" | "pointercancel" | "pointerdown" | "pointerenter" | "pointerleave" | "pointermove" | "pointerout" | "pointerover" | "pointerup" | "progress" | "ratechange" | "reset" | "resize" | "scroll" | "securitypolicyviolation" | "seeked" | "seeking" | "select" | "selectionchange" | "selectstart" | "stalled" | "submit" | "suspend" | "timeupdate" | "toggle" | "touchcancel" | "touchend" | "touchmove" | "touchstart" | "transitioncancel" | "transitionend" | "transitionrun" | "transitionstart" | "volumechange" | "waiting" | "wheel">(evtType: K, handler: SpecificEventListener<K>): void {
@@ -68,23 +70,24 @@ const Ripple: DirectiveOptions = {
                 boundElement.style.setProperty(varName, value);
             },
             computeBoundingRect(): ClientRect {
-                return boundElement.surface.parent.getBoundingClientRect();
+                return boundElement.getBoundingClientRect();
             },
             getWindowPageOffset(): MDCRipplePoint {
                 return { x: window.pageXOffset, y: window.pageYOffset };
             }            
         };
 
-        boundElement.mdcComponent = new MDCRippleFoundation(_adapter);
+        
 
-         //Ripple Parent is only available after Element added to DOM
          vnode?.context?.$nextTick(() => {
-            boundElement.surface = {
-                get parent() {
-                    return boundElement.parentElement!;
+            if(boundElement.mdcComponent == null){
+                //Create Foundation and Initialize
+                boundElement.mdcComponent = new MDCRippleFoundation(_adapter);        
+                if(modifiers?.unbounded){
+                    boundElement.mdcComponent.setUnbounded(true);
                 }
-            };
-            boundElement.mdcComponent?.init();
+                boundElement.mdcComponent?.init();
+            }            
         });
     },
     unbind(el: Element | null, binding: VNodeDirective, vnode: VNode) {
