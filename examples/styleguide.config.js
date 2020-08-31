@@ -14,6 +14,7 @@ module.exports = {
   // webpackConfig: {
   //   // custom config goes here
   // },
+  styleguideDir: path.join(__dirname, '../docs'),
   require: [path.join(__dirname, 'styleguide.global.requires.js')],
   skipComponentsWithoutExample : true,
   getComponentPathLine(componentPath) {
