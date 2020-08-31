@@ -168,14 +168,14 @@ const Tab: DirectiveOptions = {
   },
 
   inserted(el: Element | null, binding: VNodeDirective, vnode: VNode) {
-
+    //
   },
 
   update(el: Element | null, binding: VNodeDirective, vnode: VNode) {
-
+    //
   },
   componentUpdated(el: Element | null, binding: VNodeDirective, vnode: VNode) {
-
+    //
   },
 
   unbind(el: Element | null, binding: VNodeDirective, vnode: VNode) {
