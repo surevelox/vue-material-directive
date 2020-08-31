@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@material/tab": "^7.0.0",
-    "@vue-material-directive/tab": "0.0.1",
-    "@vue-material-directive/ripple": "0.0.1",
+    "@vue-material-directive/tab": "0.0.0",
+    "@vue-material-directive/ripple": "0.0.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",

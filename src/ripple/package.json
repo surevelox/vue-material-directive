@@ -1,6 +1,6 @@
 {
   "name": "@vue-material-directive/ripple",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Material Ripple - Vue directive",
   "author": "Niraj Soni",
   "scripts": {
