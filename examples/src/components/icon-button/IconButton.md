@@ -48,7 +48,7 @@ Directive for Icon Button
 
 ```html static
 <div>
-  <button class="mdc-icon-button" @MDCIconButtonToggle:change="eventHandler"  v-ripple></div>
+  <button class="mdc-icon-button" @MDCIconButtonToggle:change="eventHandler"  v-ripple.unbounded v-icon-button></div>
   <!--content here-->
 </div>
 ```
