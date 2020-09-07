@@ -1,4 +1,4 @@
-### Quick Start (CDN) 
+### Quick Start (CDN)
 Using Vue Material Directive for Material components for web with minimum setup is to use CDN.
 
 ```html static
@@ -19,7 +19,7 @@ npm install @vue-material-directive/ripple --save
 
 ### Basic Usage
 
-Use RipplePlugin globally in main.js. 
+Use RipplePlugin globally in main.js.
 
 ```javascript
 import RipplePlugin from "@vue-material-directive/ripple";

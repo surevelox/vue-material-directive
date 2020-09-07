@@ -13,9 +13,7 @@ import { matches } from '@material/dom/ponyfill';
 
 interface MDCRippleElement extends HTMLElement {
     mdcComponent: MDCRippleFoundation | null;
-    //surface : RippleParentElement;
-    
-
+    isUnbounded : boolean;
 }
 
 
@@ -28,13 +26,13 @@ const Ripple: DirectiveOptions = {
         const boundElement = el as MDCRippleElement;
         const modifiers = binding.modifiers;
         const arg = binding.arg;
-
+        boundElement.isUnbounded = modifiers?.unbounded || false;
         const _adapter : MDCRippleAdapter = {
             browserSupportsCssVars(): boolean {
                 return util.supportsCssVariables(window);
             },
             isUnbounded(): boolean {
-                return false;
+                return boundElement.isUnbounded;
             },
             isSurfaceActive(): boolean {
                 return matches(boundElement, ':active')
@@ -74,20 +72,21 @@ const Ripple: DirectiveOptions = {
             },
             getWindowPageOffset(): MDCRipplePoint {
                 return { x: window.pageXOffset, y: window.pageYOffset };
-            }            
+            }
         };
 
-        
+
 
          vnode?.context?.$nextTick(() => {
             if(boundElement.mdcComponent == null){
                 //Create Foundation and Initialize
-                boundElement.mdcComponent = new MDCRippleFoundation(_adapter);        
+                boundElement.mdcComponent = new MDCRippleFoundation(_adapter);
                 if(modifiers?.unbounded){
+                    boundElement.isUnbounded = true;
                     boundElement.mdcComponent.setUnbounded(true);
                 }
                 boundElement.mdcComponent?.init();
-            }            
+            }
         });
     },
     unbind(el: Element | null, binding: VNodeDirective, vnode: VNode) {
