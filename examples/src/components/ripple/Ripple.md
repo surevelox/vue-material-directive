@@ -41,10 +41,10 @@ export default {
 ```vue
 <template>
 <div>
-    <div  class="mdc-ripple-surface mdc-typography mdc-typography--caption" v-ripple>
+    <div  class="mdc-ripple-surface mdc-typography mdc-typography--caption">
         Click Here!
     </div>
-    <div  class="mdc-ripple-surface material-icons" style="border-radius:50%" v-ripple.unbounded>
+    <div  class="mdc-ripple-surface material-icons" style="border-radius:50%" v-ripple>
         favorite
     </div>
     <div  class="mdc-ripple-surface mdc-ripple-surface--primary mdc-theme--primary mdc-typography mdc-typography--body1"  v-ripple>
@@ -53,6 +53,8 @@ export default {
     <div  class="mdc-ripple-surface mdc-ripple-surface--accent mdc-theme--secondary mdc-typography mdc-typography--body2" v-ripple>
         Secondary
     </div>
+    <button class="mdc-icon-button material-icons" v-ripple.unbounded>favorite
+    </button>
 </div>
 </template>
 <style>
