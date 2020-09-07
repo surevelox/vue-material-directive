@@ -3,6 +3,10 @@
     <h1>{{ msg }}</h1>
 
     <basic-sfc-tab></basic-sfc-tab>
+    <button class="mdc-icon-button" v-ripple.unbounded v-icon-button>      
+      <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+      <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+    </button>
 
     <p>
       For a guide and recipes on how to configure / customize this project,<br />

@@ -70,7 +70,7 @@ Basic tab Example using SFC (Single File Component)
 Directive for  TabBar
 
 ```html static
-  <div class="mdc-tab-bar" role="tablist" v-tab-bar>
+  <div class="mdc-tab-bar" role="tablist" @MDCTabBar:activated="eventHandler" v-tab-bar>
     <!-- Tabs Scroller here --> 
   </div>
 ```

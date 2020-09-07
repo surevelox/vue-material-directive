@@ -3,10 +3,14 @@ import App from "./App.vue";
 
 // prettier-ignore
 import TabPlugin from "@vue-material-directive/tab";
-Vue.use(TabPlugin);
-
 import RipplePlugin from "@vue-material-directive/ripple";
+import IconButtonPlugin from "@vue-material-directive/icon-button";
+
+
+Vue.use(TabPlugin);
 Vue.use(RipplePlugin);
+Vue.use(IconButtonPlugin);
+
 
 Vue.config.productionTip = false;
 
