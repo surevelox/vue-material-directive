@@ -20,3 +20,5 @@ steps:
     lerna bootstrap --hoist
     npm run build
   displayName: 'npm install and build'
+- script: |
+    lerna publish prerelease --no-push --force-publish --no-git-tag-version --registry registry=$(registry)
