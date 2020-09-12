@@ -22,7 +22,7 @@ const Ripple: DirectiveOptions = {
         //
     },
     bind(el: Element | null, binding: VNodeDirective, vnode: VNode) {
-
+        
         const boundElement = el as MDCRippleElement;
         const modifiers = binding.modifiers;
         const arg = binding.arg;
@@ -64,13 +64,13 @@ const Ripple: DirectiveOptions = {
             deregisterResizeHandler(handler: SpecificEventListener<"resize">): void {
                 window.removeEventListener('resize', handler);
             },
-            updateCssVariable(varName: string, value: string | null): void {
+            updateCssVariable(varName: string, value: string | null): void {                
                 boundElement.style.setProperty(varName, value);
             },
             computeBoundingRect(): ClientRect {
                 return boundElement.getBoundingClientRect();
             },
-            getWindowPageOffset(): MDCRipplePoint {
+            getWindowPageOffset(): MDCRipplePoint {                
                 return { x: window.pageXOffset, y: window.pageYOffset };
             }
         };
