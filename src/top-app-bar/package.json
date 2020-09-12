@@ -1,6 +1,6 @@
 {
   "name": "@vue-material-directive/top-app-bar",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "description": "Vue Directive for Top App Bar component of Material Components for the web",
   "keywords": [
     "top-app-bar",

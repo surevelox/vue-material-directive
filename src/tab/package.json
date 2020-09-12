@@ -1,6 +1,6 @@
 {
   "name": "@vue-material-directive/tab",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "description": "Material Tab - Vue directive",
   "author": "Niraj Soni",
   "scripts": {
