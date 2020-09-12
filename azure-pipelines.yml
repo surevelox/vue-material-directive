@@ -20,9 +20,9 @@ steps:
     lerna bootstrap --hoist
     npm run build
   displayName: 'npm install and build'
-  - task: Npm@1
-    inputs:
-      command: 'custom'
-      customCommand: 'lerna publish --no-push --force-publish --no-git-tag-version'
-      customRegistry: 'useFeed'
-      customFeed: '1bcb10d4-2d73-458f-a582-27ccd4cddc6c/b7c9e635-a316-4aab-82fd-eb15759f0961'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'lerna publish --no-push --force-publish --no-git-tag-version'
+    customRegistry: 'useFeed'
+    customFeed: '1bcb10d4-2d73-458f-a582-27ccd4cddc6c/b7c9e635-a316-4aab-82fd-eb15759f0961'
