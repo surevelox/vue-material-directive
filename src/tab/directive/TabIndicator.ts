@@ -14,7 +14,7 @@ interface MDCTabIndicatorElement extends HTMLElement {
 
 const TabIndicator: DirectiveOptions = {
   inserted(el: Element | null, binding: VNodeDirective, vnode: VNode) {
-
+    //
   },
   bind(el: Element | null, binding: VNodeDirective, vnode: VNode) {
 

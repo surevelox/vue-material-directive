@@ -198,11 +198,11 @@ const TabBar: DirectiveOptions = {
   },
 
   update(el: Element | null, binding: VNodeDirective, vnode: VNode) {
-
+    //
   },
 
   componentUpdated(el: Element | null, binding: VNodeDirective, vnode: VNode) {
-
+    //
   },
 
   inserted(el: Element | null, binding: VNodeDirective, vnode: VNode) {
