@@ -14,9 +14,18 @@ trigger:
     inputs:
       versionSpec: '10.x'
     displayName: 'Install Node.js'
-  
-  - script: |
-      npm install -g lerna
-      lerna bootstrap --hoist
-      npm run build
-    displayName: 'npm install and build'
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'npm install -g lerna'
+    displayName: 'Install Lerna'
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'lerna bootstrap --hoist'
+    displayName: 'Lerna Bootstrap'
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'npm run build'
+    displayName: 'Build'
