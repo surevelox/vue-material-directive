@@ -8,6 +8,27 @@
       <i class="material-icons mdc-icon-button__icon">favorite_border</i>
     </button>
 
+
+
+<header class="mdc-top-app-bar" v-top-app-bar:fixed> 
+  <div class="mdc-top-app-bar__row">
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+      <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" v-top-app-bar-nav>menu</button>
+      <span class="mdc-top-app-bar__title">Title</span>
+    </section>
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-short="Bookmark this page"
+      v-ripple.unbounded
+      v-top-app-bar-action>bookmark</button>
+      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Bookmark this page" 
+      v-ripple.unbounded
+      v-top-app-bar-action>bookmark</button>
+      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Bookmark this page" 
+      v-ripple.unbounded
+      v-top-app-bar-action>bookmark</button>
+    </section>
+  </div>
+</header>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
@@ -98,16 +119,42 @@
         >
       </li>
     </ul>
+
+
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import _BasicSfcTab from "./tabs/_BasicSfcTab.vue";
+import { TopAppBar, TopAppBarAction, TopAppBarNav  } from "@vue-material-directive/top-app-bar";
+const topV = { ...TopAppBar,
+              ...{ setting : { 
+                      CssShort : '.mdc-top-app-bar--short',
+                      CssCollapsed: '.mdc-top-app-bar--collapsed',
+                      CssShortHasAction: 'mdc-top-app-bar--short-has-action-item',
+                      CssTopAppBar :'.mdc-top-app-bar'
+                  }
+              }
+};
+    
 
 @Component({
   components: {
     "basic-sfc-tab": _BasicSfcTab
+  },
+  directives:{
+    'top-app-bar':topV,
+    TopAppBarAction,
+    TopAppBarNav
+  },
+  methods:{
+    clicked(){
+      alert('clicked');
+    },
+    navClicked(){
+      alert('nav clicked')
+    }
   }
 })
 export default class HelloWorld extends Vue {

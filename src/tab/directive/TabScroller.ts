@@ -113,7 +113,7 @@ const TabScroller: DirectiveOptions = {
   },
 
   inserted(el: Element | null, binding: VNodeDirective, vnode: VNode) {
-
+    //
   },
 
   unbind(el: Element | null, binding: VNodeDirective, vnode: VNode) {
