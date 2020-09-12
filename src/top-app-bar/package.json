@@ -1,0 +1,54 @@
+{
+  "name": "@vue-material-directive/top-app-bar",
+  "version": "0.0.1-alpha.1",
+  "description": "Vue Directive for Top App Bar component of Material Components for the web",
+  "keywords": [
+    "top-app-bar",
+    "vue",
+    "directive",
+    "material",
+    "component",
+    "TopAppBar"
+  ],
+  "author": "Niraj Soni",
+  "homepage": "https://github.com/surevelox/vue-material-directive",
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^1.19.1",
+    "eslint": "^6.7.2"
+  },
+  "peerDependencies": {
+    "@material/top-app-bar": "^7.0.0",
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
+  },
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surevelox/vue-material-directive.git",
+    "directory": "src/top-app-bar"
+  },
+  "scripts": {
+    "serve": "vue-cli-service build --name index --target lib ./index.ts --watch",
+    "build": "vue-cli-service build --mode production --name index --target lib index.ts",
+    "lint": "vue-cli-service lint"
+  },
+  "bugs": {
+    "url": "https://github.com/surevelox/vue-material-directive/issues"
+  }
+}

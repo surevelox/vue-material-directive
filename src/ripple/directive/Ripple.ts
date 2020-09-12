@@ -14,9 +14,6 @@ import { matches } from '@material/dom/ponyfill';
 interface MDCRippleElement extends HTMLElement {
     mdcComponent: MDCRippleFoundation | null;
     isUnbounded : boolean;
-    //surface : RippleParentElement;
-    
-
 }
 
 
@@ -75,21 +72,21 @@ const Ripple: DirectiveOptions = {
             },
             getWindowPageOffset(): MDCRipplePoint {                
                 return { x: window.pageXOffset, y: window.pageYOffset };
-            }            
+            }
         };
 
-        
+
 
          vnode?.context?.$nextTick(() => {
             if(boundElement.mdcComponent == null){
                 //Create Foundation and Initialize
-                boundElement.mdcComponent = new MDCRippleFoundation(_adapter);        
+                boundElement.mdcComponent = new MDCRippleFoundation(_adapter);
                 if(modifiers?.unbounded){
                     boundElement.isUnbounded = true;
                     boundElement.mdcComponent.setUnbounded(true);
                 }
                 boundElement.mdcComponent?.init();
-            }            
+            }
         });
     },
     unbind(el: Element | null, binding: VNodeDirective, vnode: VNode) {

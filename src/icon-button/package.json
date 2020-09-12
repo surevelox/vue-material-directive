@@ -1,13 +1,11 @@
 {
-  "name": "@vue-material-directive/tab",
+  "name": "@vue-material-directive/icon-button",
   "version": "0.0.1-alpha.1",
-  "description": "Material Tab - Vue directive",
+  "description": "Material Icon Button - Vue directive",
   "author": "Niraj Soni",
   "scripts": {
-    "serve": "vue-cli-service build --name index --target lib ./index.ts",
-    "build": "vue-cli-service build --mode production --name index --target lib index.ts",
-    "lint": "vue-cli-service lint",
-    "testx": "echo \"Done\" "
+    "serve": "vue-cli-service build --name index --target lib ./index.ts --watch",
+    "build": "vue-cli-service build --mode production --name index --target lib index.ts"
   },
   "main": "dist/index.umd.js",
   "files": [
@@ -26,11 +24,7 @@
     "prettier": "^1.19.1"
   },
   "peerDependencies": {
-    "@material/dom": "^7.0.0",
-    "@material/tab": "^7.0.0",
-    "@material/tab-bar": "^7.0.0",
-    "@material/tab-indicator": "^7.0.0",
-    "@material/tab-scroller": "^7.0.0",
+    "@material/icon-button": "^7.0.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
@@ -44,13 +38,13 @@
   "homepage": "https://github.com/surevelox/vue-material-directive",
   "keywords": [
     "material",
-    "tab",
+    "icon button",
     "vue"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/surevelox/vue-material-directive.git",
-    "directory": "src/tab"
+    "directory": "src/icon-button"
   }
 }
