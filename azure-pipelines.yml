@@ -20,7 +20,7 @@ steps:
   displayName: 'npm install and bootstrap'
 - script: |
     npm run build
-  displayName: 'npm install and build'
+  displayName: 'npm build'
 - script: |
     npm run npmrc -- registry=$(registry)
   displayName: 'create npmrc'
