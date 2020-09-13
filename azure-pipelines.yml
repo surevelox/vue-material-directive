@@ -19,7 +19,8 @@ steps:
   displayName: 'create npmrc'
 - task: npmAuthenticate@0
   inputs:
-    workingFile: '/.npmrc'
+    workingFile: '.npmrc'
+
 - script: |
     npm install -g lerna
     lerna bootstrap --hoist
