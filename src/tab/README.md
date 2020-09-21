@@ -1,6 +1,7 @@
 # `tab`
 
 > Material Tab component
+contains directive for TabBar, Tab, TabScroller
 
 ## Usage
 
