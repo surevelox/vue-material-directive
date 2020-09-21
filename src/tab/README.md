@@ -1,6 +1,6 @@
 # `tab`
 
-> TODO: description
+> Material Tab component
 
 ## Usage
 
