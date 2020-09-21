@@ -9,6 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+
 steps:
 - task: NodeTool@0
   inputs:
@@ -17,15 +18,22 @@ steps:
 - script: |
     npm install -g lerna
     lerna bootstrap --hoist
+  name: 'install'
   displayName: 'npm install and bootstrap'
 - script: |
     npm run build
+  name: 'build'
   displayName: 'npm build'
 - script: |
     npm run npmrc -- registry=$(registry)
-  displayName: 'create npmrc'
+  name: 'set_registry'
+  displayName: 'Prepare regtistry in .npmrc for Publish'
 - task: npmAuthenticate@0
   inputs:
     workingFile: '.npmrc'
+  name: 'auth_registry'
+  displayName: 'Login to Registry'
 - script: |
     lerna publish prerelease --no-push --force-publish --no-git-tag-version --registry $(registry) --yes
+  name: 'publish'
+  displayName: 'Publish to Registry'

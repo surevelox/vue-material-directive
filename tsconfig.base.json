@@ -1,5 +1,19 @@
 {
     "compilerOptions": {
+      "declaration": true,
+      "downlevelIteration": true,
+      "emitDecoratorMetadata": true,
+    
+      "newLine": "lf",
+      "noEmitOnError": false,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noStrictGenericChecks": true,
+      "preserveConstEnums": true,
+      "pretty": true,
+      "stripInternal": true,
+      "importsNotUsedAsValues": "preserve",
+
       "target": "ESNext",
       "module": "ESNext",
       "strict": true,
